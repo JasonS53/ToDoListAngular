@@ -1,0 +1,12 @@
+<div *ngFor="let item of list;index as i">
+    
+    <form #itemForm="ngForm" (ngSubmit)="completeTask(itemForm)">
+        <h4><button *ngIf="!item.completed" >Complete</button> - {{item.task}}</h4>
+        <input hidden readonly name="completed" ngModel = "{{i}}" />
+    </form>
+</div>
+
+<form #addForm="ngForm" (ngSubmit)="addTask(addForm)">
+    <p>Add your to-do <input type="text" name="task" id="task" ngModel /></p>
+    <button>Add</button>
+  </form>
